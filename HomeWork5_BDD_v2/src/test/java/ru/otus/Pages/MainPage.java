@@ -5,11 +5,14 @@ import ru.otus.DriverFactory.WebDriverFactory;
 import ru.otus.DriverFactory.WebDriverType;
 
 public class MainPage extends BasePage {
+    private static final String URL = "https://otus.ru";
     public MainPage(WebDriver driver) {
         super(driver);
     }
-    public void openURL () {
-        driver.get("https://otus.ru");
+    public MainPage open() {
+
+        driver.get(URL);
+        return this;
     }
     public void mainSwtUp () {
         WebDriverType wDT;
