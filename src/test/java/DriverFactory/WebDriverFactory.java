@@ -6,23 +6,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
-
+    protected static WebDriver driver;
     public static WebDriver createDriver(WebDriverType wdType) {
         switch (wdType) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
+                driver = new ChromeDriver();
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
-            default:
-                return null;
-        }
+                driver = new FirefoxDriver();
+            }
+        return driver;
     }
     public static void closeDriver (WebDriver driver) {
         if (driver != null) {
             driver.close();
         }
+
     }
 
 
