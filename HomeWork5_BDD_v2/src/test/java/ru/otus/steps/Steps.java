@@ -25,7 +25,8 @@ MainPage mainPage = new MainPage(driver);
     @Дано("^я поднимаю драйвер$")
     public WebDriver getDriver () {
             WebDriverManager.chromedriver().setup();
-            driver= new ChromeDriver();
+//            createWebDriver();
+//            driver= new ChromeDriver();
             driver.manage().window().maximize();
             return driver;
         }
