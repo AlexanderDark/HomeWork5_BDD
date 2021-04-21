@@ -2,7 +2,8 @@ package DriverFactory;
 
 public enum WebDriverType {
     FIREFOX("firefox"),
-    CHROME("chrome");
+    CHROME("chrome"),
+    DEFAULT ("chrome");
 
     String wDT;
     WebDriverType (String wDT) {
@@ -20,6 +21,6 @@ public enum WebDriverType {
                 return value;
             }
         }
-        return CHROME;
+        return DEFAULT;
     }
 }
