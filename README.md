@@ -12,3 +12,6 @@ HomeWork5_BDD
 Использование page object и cucumber - 5 баллов
 Вынесена работа с драйвером, использование hooks, переиспользование steps - 2 балла
 Работа со spring framework - 2 балла Работа принимается от 7 баллов
+
+Запускать через консоль
+mvn clean test -Dbrowser="chrome" -Dpassword="1234abcd" -Dlogin="nesito7589@nobitcoin.net"

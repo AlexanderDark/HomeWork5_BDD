@@ -44,7 +44,7 @@ public class Steps extends BaseStep{
             Assert.assertTrue(mainPage.elementIsDisplayed(By.xpath("//div[contains(text(),'не существует')]")));
         }
 
-        @И("Корректные учётные данные")
+        @И("я ввожу корректные учётные данные")
         public void setUserDefinedCreds() {
             setCreds();
             System.out.println(login + "-" + pass);
@@ -57,12 +57,12 @@ public class Steps extends BaseStep{
                     .fillAuthForm(login, pass);
         }
 
-        @И("логин {string}")
+        @И("я ввожу логин {string}")
         public void setLogin(String login) {
             this.login = login;
         }
 
-        @И("пароль {string}")
+        @И("я ввожу пароль {string}")
         public void setPass(String pass) {
             this.pass = pass;
         }

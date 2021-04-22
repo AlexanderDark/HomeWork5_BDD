@@ -12,7 +12,7 @@ public class MainPage extends BasePage {
     private final By name = By.cssSelector("input[type='text']");
     private final By pass = By.cssSelector("input[type='password']");
     private final By submit = By.xpath("//*[contains(text(),'Войти')]");
-    private final By myCourses = By.cssSelector(".ic-my-course");
+    private final By userMenu = By.cssSelector(".header2-menu__item-text__username");
 
         //Переход на страницу отуса
     public MainPage openPage () {
@@ -34,6 +34,6 @@ public class MainPage extends BasePage {
     }
     //Проверить успешный вход
     public boolean checkLogin() {
-        return !super.driver.findElements(myCourses).isEmpty();
+        return !super.driver.findElements(userMenu).isEmpty();
     }
 }

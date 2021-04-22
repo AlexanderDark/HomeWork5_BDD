@@ -19,10 +19,10 @@ public class Hooks {
     @Before(value="@TestUI")
     public void SetupDriver() {
         //Получаем имя браузера из параметра -Dbrowser командной строки, если не указан то по умолчанию chrome
-        String name = Optional.ofNullable(System.getProperty("browser")).orElse("chrome");
+        String browser = Optional.ofNullable(System.getProperty("browser")).orElse("chrome");
 
         //Получаем имя драйвера из класса Enum
-        WebDriverType wDT = WebDriverType.findByName(name);
+        WebDriverType wDT = WebDriverType.findByName(browser);
 
         //Создаём вебдрайвер
         driver = WebDriverFactory.createDriver(wDT);
