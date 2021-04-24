@@ -13,6 +13,7 @@ public class MainPage extends BasePage {
     private final By pass = By.cssSelector("input[type='password']");
     private final By submit = By.xpath("//*[contains(text(),'Войти')]");
     private final By userMenu = By.cssSelector(".header2-menu__item-text__username");
+    private final By appForm = By.cssSelector("button.course-header2__button");
 
         //Переход на страницу отуса
     public MainPage openPage () {
@@ -32,6 +33,11 @@ public class MainPage extends BasePage {
         super.driver.findElement(pass).sendKeys(password);
         super.driver.findElement(submit).click();
     }
+    public MainPage putAppForm () {
+        super.driver.findElement(appForm).click();
+        return this;
+    }
+
     //Проверить успешный вход
     public boolean checkLogin() {
         return !super.driver.findElements(userMenu).isEmpty();

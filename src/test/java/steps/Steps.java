@@ -5,6 +5,8 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.То;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +17,7 @@ import pages.MainPage;
 import java.util.Optional;
 
 public class Steps extends BaseStep{
-
+    private Logger logger = LogManager.getLogger(Steps.class);
         @Value("${correctLogin}")
         private String correctLogin;
 
@@ -29,7 +31,7 @@ public class Steps extends BaseStep{
         String pass;
         WebDriver driver = BaseClass.getDriver();
 
-        @Дано("я открываю страницу входа")
+        @Дано("я запускаю браузер")
         public void loginPage() {
             mainPage.initDriver(driver);
         }
@@ -67,27 +69,22 @@ public class Steps extends BaseStep{
             this.pass = pass;
         }
 
-        @Дано("Анонимный пользователь на сайте {string}")
-        public void init(String url) {
-            mainPage.initDriver(driver);
-            mainPage.openURL(url);
-        }
-
         @Когда("я перехожу по прямой ссылке {string}")
         public void openUrl(String url) {
             mainPage.openURL(url);
         }
 
-        @То("происходит переадресация на форму аутентификации")
-        public void loginFormIsAppear() {
-            Assert.assertTrue(mainPage.
-                    elementIsPresent(By.xpath("//*[contains(text(),'Войти')]")));
-        }
-
         @То("происходит успешный переход в раздел {string}")
         public void checkTitle(String title) {
+
+            logger.info(driver.getTitle());
             Assert.assertTrue(mainPage.getTitle().contains(title));
         }
+
+        @Когда("я нажимаю на кнопку Оставить заявку")
+        public void putApplicationForm () {
+            mainPage.putAppForm();
+    }
 
         public void setCreds() {
             //Получаем имя пользователя из параметра -Dlogin командной строки
